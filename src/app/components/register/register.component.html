@@ -1,0 +1,44 @@
+<div class="login-container">
+    <h2>Register</h2>
+    <div class="form-group">
+        <input [ngModel]="userData.EmailAddress" 
+            type="text" 
+            class="floating-label-field floating-label-field--s3" 
+            placeholder="Email Address"/>
+        <label class="floating-label">Email Address</label>
+        <div class="field-error-message"></div>
+    </div>
+    <div class="form-group">
+        <input [ngModel]="userData.DisplayName" 
+            type="text" 
+            class="floating-label-field floating-label-field--s3" 
+            placeholder="Display Name"/>
+        <label class="floating-label">Display Name</label>
+        <div class="field-error-message"></div>
+    </div>
+    <div class="form-group">
+        <input [ngModel]="passwordTokenRequest.UserName"
+            type="text" 
+            class="floating-label-field floating-label-field--s3" 
+            placeholder="User Name"/>
+        <label class="floating-label">User Name</label>
+        <div class="field-error-message"></div>
+    </div>
+    <div class="form-group">
+        <input [ngModel]="passwordTokenRequest.Password" 
+            type="password" 
+            class="floating-label-field floating-label-field--s3" 
+            placeholder="Password"/>
+        <label class="floating-label">Password</label>
+        <div class="field-error-message"></div>
+    </div>
+    <div class="form-group">
+        <button class="btn-y" (click)="register()">Register</button>
+    </div>
+    <div class="form-group">
+        <div class="login-form-sublink">
+            <span routerLink="/login" class="btn-link register-link">Login</span>
+            <span class="btn-link forgot-link">Forgot Password</span>
+        </div>
+    </div>
+</div>

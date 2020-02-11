@@ -50,13 +50,39 @@ button{
 	background-color: $positive-dark;
 	color: white;
 
-	&:active{
-		background-color: $positive;
-	}
+	&:active{ background-color: $positive; }
 }
 
 .btn-link{
-	
+	text-decoration: none !important;
+	text-transform: uppercase;
+	font-size: 12px;
+
+	&:hover{
+		cursor: pointer;
+		color: $link-color;
+		text-decoration: none;
+	}
+
+	&:visited{ text-decoration: none; }
+
+	&:focus { text-decoration: none; outline: 0; }
+}
+
+.register-link{ float: left; } 
+
+.forgot-link{ float: right; }
+
+.logo{
+	@extend .center-position;
+	text-align: center;
+}
+
+.login-container{
+    @extend .center-position;
+    height: 100%;
+    width: 400px;
+	text-align: center;
 }
 
 .form-group{
@@ -74,7 +100,8 @@ button{
     top: 0;
     left: 0;
     user-select: none;
-     z-index: 1500;
+	z-index: 1500;
+	text-transform: uppercase;
 }
 
 /* Hide the browser-specific focus styles */
