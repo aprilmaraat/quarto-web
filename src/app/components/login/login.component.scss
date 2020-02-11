@@ -1,8 +1,14 @@
 @import '../../../_variable.scss';
-@import "//src/styles.scss";
+@import "../../../styles.scss";
 
 .login-container{
-    width: 500px;
-    height: calc(100% - 50px);
-    background-color: $shadow;
+    @extend .center-position;
+    position: relative;
+    height: 100%;
+    width: 400px;
+    text-align: center;
+
+    & > .logo{
+        margin-top: 100px;
+    }
 }

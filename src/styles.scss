@@ -21,3 +21,104 @@ body{
     position: relative;
     background-color: $theme-color-dark;
 }
+
+.content-panel{
+	width: 100%;
+	height: calc(100vh - 50px);
+	// background-color: $background_color;
+}
+
+.form-group{
+	@extend .center-position;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	margin-top: 25px;
+}
+
+/* Making the label break the flow */
+.floating-label
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    user-select: none;
+     z-index: 1500;
+}
+
+/* Hide the browser-specific focus styles */
+.floating-label-field
+{
+	color: rgba(44, 62, 80, .75);
+    border-width: 0;
+    z-index: 2000;
+}
+.floating-label-field:focus
+{
+    outline: 0;
+    box-shadow: 0;
+}
+.floating-label-field::placeholder
+{
+	color: rgba(44, 62, 80, .5);
+}
+
+/* Make the label and field look identical on every browser */
+.floating-label,
+.floating-label-field
+{
+    font: inherit;
+    line-height: 1;
+    display: block;
+	width: calc(100% - 48px);
+	position: relative;
+}
+
+.floating-label-field--s3
+{
+	padding: 24px;
+    transition: border-color .25s ease-in-out;
+	color: rgba(34, 34, 34, 0.75);
+	border-bottom: 1px solid rgba(44, 62, 80, .75);
+    background-color: transparent;
+}
+
+.floating-label-field--s3 + .floating-label
+{
+    position: absolute;
+    top: .75em;
+    left: .75em;
+    display: inline-block;
+	width: auto;
+    margin: 0;
+    padding: .75em;
+    transition: transform .25s, opacity .25s, padding .25s ease-in-out;
+    transform-origin: 0 0;
+	color: rgba(44, 44, 44, 0.5); 
+}
+.floating-label-field--s3:focus,
+.floating-label-field--s3:not(:placeholder-shown)
+{
+	border-bottom: 1px solid rgba(44, 62, 80, .75);
+}
+.floating-label-field--s3:focus + .floating-label,
+.floating-label-field--s3:not(:placeholder-shown) + .floating-label
+{
+    z-index: 2500;
+    padding: .75em;
+    transform: translate(0, -2em) scale(.9);
+	color: rgba(44, 44, 44, 0.5);
+	background-color: white;
+}
+
+/* Common Styles */
+/* Identical inputs on all browsers */
+.floating-label-field--s3:not(textarea)
+{
+    max-height: 4em;
+}
+
+.floating-label-field--s3::placeholder
+{
+    color: transparent;
+}
