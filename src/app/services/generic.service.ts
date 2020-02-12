@@ -4,21 +4,23 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class GenericService {
-    public base: string;
-    public endpoint: string;
+    public baseUrl: string;
+    // public endpoint: string;
     public http: HttpClient;
 
     constructor(_http: HttpClient) {
         this.http = _http;
     }
 
-    public get(id: number): Observable<any> {
-        let result: Observable<any>;
-        return this.http.get<Observable<any>>(this.endpoint);
+    public get(id: number, endpoint: string): Observable<any> {
+        return this.http.get<any>(this.baseUrl + endpoint);
     }
 
-    public post(object: any): Observable<any> {
-        let result: Observable<any>;
-        return this.http.post<Observable<any>>(this.endpoint, object);
+    public getList(endpoint: string): Observable<any[]>{
+        return this.http.get<any[]>(this.baseUrl + endpoint);
+    }
+
+    public post(object: any, endpoint: string): Observable<any> {
+        return this.http.post<any>(this.baseUrl + endpoint, object);
     }
 }
