@@ -25,7 +25,6 @@ export class RegisterComponent {
   public register(){
     this.registrationRequest.UserData = this.userData;
     this.passwordTokenRequest.UserName = this.userData.EmailAddress;
-    this.passwordTokenRequest.UserType = UserType.Tenant;
     this.registrationRequest.PasswordTokenRequest = this.passwordTokenRequest;
 
     this._authService.registerUser(this.registrationRequest).pipe()

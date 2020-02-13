@@ -91,6 +91,7 @@ button{
 	width: 100%;
 	text-align: center;
 	margin-top: 25px;
+	color: $input-color;
 }
 
 /* Making the label break the flow */
@@ -184,3 +185,5 @@ button{
 {
     color: transparent;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,6 +1,13 @@
 <div class="login-container">
     <h2>Register</h2>
     <div class="form-group">
+        <mat-radio-group [(ngModel)]="passwordTokenRequest.UserType">
+            <mat-radio-button class="inline-radio-button" value="1">Land Owner</mat-radio-button>
+            <mat-radio-button class="inline-radio-button" value="2">Tenant</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div class="form-group">
         <input [(ngModel)]="userData.EmailAddress" 
             type="text" 
             class="floating-label-field floating-label-field--s3" 
@@ -8,6 +15,7 @@
         <label class="floating-label">Email Address</label>
         <div class="field-error-message"></div>
     </div>
+
     <div class="form-group">
         <input [(ngModel)]="userData.DisplayName" 
             type="text" 
@@ -16,6 +24,7 @@
         <label class="floating-label">Display Name</label>
         <div class="field-error-message"></div>
     </div>
+
     <div class="form-group">
         <input [(ngModel)]="passwordTokenRequest.Password" 
             type="password" 
@@ -24,6 +33,7 @@
         <label class="floating-label">Password</label>
         <div class="field-error-message"></div>
     </div>
+    
     <div class="form-group">
         <button class="btn-y" (click)="register()">Register</button>
     </div>
