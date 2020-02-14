@@ -2,8 +2,8 @@
     <h2>Register</h2>
     <div class="form-group">
         <mat-radio-group [(ngModel)]="passwordTokenRequest.UserType">
-            <mat-radio-button class="inline-radio-button" value="1">Land Owner</mat-radio-button>
-            <mat-radio-button class="inline-radio-button" value="2">Tenant</mat-radio-button>
+            <mat-radio-button class="inline-radio-button" [value]="1">Land Owner</mat-radio-button>
+            <mat-radio-button class="inline-radio-button" [value]="2">Tenant</mat-radio-button>
         </mat-radio-group>
     </div>
 
@@ -13,15 +13,6 @@
             class="floating-label-field floating-label-field--s3" 
             placeholder="Email Address"/>
         <label class="floating-label">Email Address</label>
-        <div class="field-error-message"></div>
-    </div>
-
-    <div class="form-group">
-        <input [(ngModel)]="userData.DisplayName" 
-            type="text" 
-            class="floating-label-field floating-label-field--s3" 
-            placeholder="Display Name"/>
-        <label class="floating-label">Display Name</label>
         <div class="field-error-message"></div>
     </div>
 

@@ -14,6 +14,7 @@ export class RegisterComponent {
   public registrationRequest = new RegistrationRequest;
   public userData = new UserData;
   public passwordTokenRequest = new PasswordTokenRequest;
+  public userType: UserType;
 
   constructor(private _authService: AuthService) 
   {
@@ -24,12 +25,10 @@ export class RegisterComponent {
 
   public register(){
     this.registrationRequest.UserData = this.userData;
-    this.passwordTokenRequest.UserName = this.userData.EmailAddress;
     this.registrationRequest.PasswordTokenRequest = this.passwordTokenRequest;
-
-    this._authService.registerUser(this.registrationRequest).pipe()
-      .subscribe(data => {
-        console.log(data);
-      });
+    console.log(this.registrationRequest);
+    this._authService.registerUser(this.registrationRequest).subscribe(response => {
+      console.log(response.text());
+    }, (err) => {console.log(err)});
   }
 }
