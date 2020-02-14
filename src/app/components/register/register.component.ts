@@ -4,6 +4,7 @@ import { PasswordTokenRequest } from '../../models/password-token-request';
 import { RegistrationRequest } from '../../models/registration-request';
 import { AuthService } from '../../services/auth.service';
 import { UserType } from 'src/app/models/enum';
+import { AlertService } from '../../custom-modules/_alert/alert.service';
 
 @Component({
   selector: 'q-register',
@@ -16,7 +17,7 @@ export class RegisterComponent {
   public passwordTokenRequest = new PasswordTokenRequest;
   public userType: UserType;
 
-  constructor(private _authService: AuthService) 
+  constructor(private _authService: AuthService, private _alertService: AlertService) 
   {
   }
 
@@ -28,10 +29,10 @@ export class RegisterComponent {
     this.registrationRequest.PasswordTokenRequest = this.passwordTokenRequest;
     console.log(this.registrationRequest);
     this._authService.registerUser(this.registrationRequest).subscribe(response => {
-      console.log(response);
+      if(!response.wasSuccess)
+        this._alertService.error(response.messageText);
     }, (err) => {
-      console.log(err);
-      alert(err.error);
+      this._alertService.error(err.error);
     });
   }
 }
