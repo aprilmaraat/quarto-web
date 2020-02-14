@@ -43,14 +43,14 @@ button{
 	display: inline-block;
 	font-size: 16px;
 	text-transform: uppercase;
-	background-color: white;
+	&:focus { text-decoration: none; outline: 0; }
 }
 
 .btn-y{
-	background-color: $positive-dark;
+	background-color: $theme-color;
 	color: white;
 
-	&:active{ background-color: $positive; }
+	&:active{ background-color: $theme-color-light; }
 }
 
 .btn-link{
@@ -60,7 +60,7 @@ button{
 
 	&:hover{
 		cursor: pointer;
-		color: $link-color;
+		color: $theme-color-light;
 		text-decoration: none;
 	}
 
@@ -123,10 +123,10 @@ button{
     outline: 0;
     box-shadow: 0;
 }
-.floating-label-field::placeholder
-{
-	color: $input-color;
-}
+// .floating-label-field::placeholder
+// {
+// 	color: $input-color;
+// }
 
 /* Make the label and field look identical on every browser */
 .floating-label,
@@ -143,7 +143,7 @@ button{
 {
 	padding: 24px;
     transition: border-color .25s ease-in-out;
-	color: $input-color;
+	color: $input-color-dark;
 	border-bottom: 1px solid $input-color;
     background-color: transparent;
 }
@@ -160,14 +160,11 @@ button{
     transition: transform .25s, opacity .25s, padding .25s ease-in-out;
     transform-origin: 0 0;
 	color: $input-color;
-	// color: white;
 }
 .floating-label-field--s3:focus,
 .floating-label-field--s3:not(:placeholder-shown)
 {
-	border-bottom: 1px solid $input-color;
-	// border-bottom: 1px solid white;
-	// color: white;
+	border-bottom: 1px solid $theme-color;
 }
 .floating-label-field--s3:focus + .floating-label,
 .floating-label-field--s3:not(:placeholder-shown) + .floating-label
@@ -175,9 +172,7 @@ button{
     z-index: 2500;
     padding: .75em;
     transform: translate(0, -2em) scale(.9);
-	color: $input-color;
-	// color: white;
-	// background-color: white;
+	color: $theme-color-light;
 }
 
 /* Common Styles */

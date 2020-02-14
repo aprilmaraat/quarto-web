@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -25,7 +26,8 @@ import { AuthService } from './services/auth.service';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatInputModule
   ],
   providers: [
     GenericService,
