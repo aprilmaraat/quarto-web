@@ -76,7 +76,7 @@ button{
 .logo{
 	@extend .center-position;
 	text-align: center;
-    width: 400px;
+	width: 400px;
 
 	& > img{
 		width: 100%;
@@ -86,7 +86,7 @@ button{
 
 .login-container{
     @extend .center-position;
-    height: 100%;
+    height: calc(100% - 400px);
     width: 400px;
 	text-align: center;
 }

@@ -28,7 +28,10 @@ export class RegisterComponent {
     this.registrationRequest.PasswordTokenRequest = this.passwordTokenRequest;
     console.log(this.registrationRequest);
     this._authService.registerUser(this.registrationRequest).subscribe(response => {
-      console.log(response.text());
-    }, (err) => {console.log(err)});
+      console.log(response);
+    }, (err) => {
+      console.log(err);
+      alert(err.error);
+    });
   }
 }
