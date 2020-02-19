@@ -21,6 +21,14 @@ body{
 	bottom: 0;
 }
 
+.unselectable{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 .nav-bar{
     width: 100%;
     height: 50px;
@@ -104,6 +112,10 @@ button{
 	color: $input-color;
 }
 
+.indicator-required{
+	color: red;
+}
+
 /* Making the label break the flow */
 .floating-label
 {
@@ -139,7 +151,8 @@ button{
     font: inherit;
     line-height: 1;
     display: block;
-	width: calc(100% - 48px);
+	// width: calc(100% - 48px);
+	width: 100%;
 	position: relative;
 }
 

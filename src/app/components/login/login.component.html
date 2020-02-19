@@ -2,13 +2,13 @@
     <h2>LOGIN</h2>
     <div class="form-group">
         <input type="text" class="floating-label-field floating-label-field--s3" placeholder="Email Address" required/>
-        <label class="floating-label">Email Address</label>
-        <div class="field-error-message"></div>
+        <label class="floating-label">Email Address <span class="indicator-required">*</span></label>
+        <div *ngIf="error.emailAddress" class="field-error-message indicator-required">Email Address is required</div>
     </div>
     <div class="form-group">
         <input type="password" class="floating-label-field floating-label-field--s3" placeholder="Password" required/>
-        <label class="floating-label">Password</label>
-        <div class="field-error-message"></div>
+        <label class="floating-label">Password <span class="indicator-required">*</span></label>
+        <div *ngIf="error.password" class="field-error-message indicator-required">Password is required</div>
     </div>
     <div class="form-group">
         <button class="btn-y">Login</button>
