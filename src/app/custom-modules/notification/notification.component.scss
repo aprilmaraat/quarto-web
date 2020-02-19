@@ -1,0 +1,35 @@
+@import '../../../variable';
+@import '../../../styles.scss';
+
+.notif-area {
+    @extend .center-position;
+    height: calc(100% - 20px);
+    position: absolute;
+    width: 300px;
+    margin-right: 0;
+    padding-top: 20px;
+    padding-right: 5px;
+    overflow-y: auto;
+
+    & > .notif-bubble {
+        width: 100%;
+        height: 100px;
+        position: relative;
+        background: $light-red;
+        border-radius: .4em;
+
+        &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-left-color: $light-red;
+            border-right: 0;
+            margin-top: -7px;
+            margin-right: -7px;
+        }
+    }
+}

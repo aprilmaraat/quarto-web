@@ -1,29 +1,31 @@
 <div class="login-container">
-    <h2>Register</h2>
+    <h2>REGISTER</h2>
     <div class="form-group">
-        <input [(ngModel)]="userData.EmailAddress" 
+        <mat-radio-group [(ngModel)]="passwordTokenRequest.UserType" name="UserType" required>
+            <mat-radio-button class="inline-radio-button" [value]="1">Land Owner</mat-radio-button>
+            <mat-radio-button class="inline-radio-button" [value]="2">Tenant</mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="error.userType" class="field-error-message indicator-required">User Type is required</div>
+    </div>
+
+    <div class="form-group">
+        <input [(ngModel)]="passwordTokenRequest.EmailAddress" 
             type="text" 
             class="floating-label-field floating-label-field--s3" 
-            placeholder="Email Address"/>
-        <label class="floating-label">Email Address</label>
-        <div class="field-error-message"></div>
+            placeholder="Email Address" required/>
+        <label class="floating-label">Email Address <span class="indicator-required">*</span></label>
+        <div *ngIf="error.emailAddress" class="field-error-message indicator-required">Email Address is required</div>
     </div>
-    <div class="form-group">
-        <input [(ngModel)]="userData.DisplayName" 
-            type="text" 
-            class="floating-label-field floating-label-field--s3" 
-            placeholder="Display Name"/>
-        <label class="floating-label">Display Name</label>
-        <div class="field-error-message"></div>
-    </div>
+
     <div class="form-group">
         <input [(ngModel)]="passwordTokenRequest.Password" 
             type="password" 
             class="floating-label-field floating-label-field--s3" 
-            placeholder="Password"/>
-        <label class="floating-label">Password</label>
-        <div class="field-error-message"></div>
+            placeholder="Password" required/>
+        <label class="floating-label">Password <span class="indicator-required">*</span></label>
+        <div *ngIf="error.password" class="field-error-message indicator-required">Password is required</div>
     </div>
+    
     <div class="form-group">
         <button class="btn-y" (click)="register()">Register</button>
     </div>

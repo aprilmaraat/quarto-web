@@ -1,7 +1,7 @@
 import { UserType } from './enum';
 
 export class PasswordTokenRequest {
-    UserName: string;
+    EmailAddress: string;
     Password: string;
     UserType: UserType;
 }
