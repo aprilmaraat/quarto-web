@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { UserData } from '../../models/user-data';
-import { PasswordTokenRequest } from '../../models/password-token-request';
-import { RegistrationRequest } from '../../models/registration-request';
-import { AuthService } from '../../services/auth.service';
-import { UserType } from 'src/app/models/enum';
-import { AlertService } from '../../custom-modules/_alert/alert.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { AlertService } from '../../custom-modules/_alert/alert.service';
+import { UserType } from 'src/app/models/enum';
+import { PasswordTokenRequest } from '../../models/password-token-request';
 
 @Component({
   selector: 'q-register',
@@ -22,7 +20,8 @@ export class RegisterComponent {
     , private router: Router) { }
 
   public register() {
-    if (this.passwordTokenRequest.EmailAddress !== undefined && this.passwordTokenRequest.Password !== undefined 
+    if (this.stringIsValid(this.passwordTokenRequest.EmailAddress) 
+        && this.stringIsValid(this.passwordTokenRequest.Password) 
         && this.passwordTokenRequest.UserType !== undefined) {
       this.authService.registerUser(this.passwordTokenRequest).subscribe(response => {
         if(!response.wasSuccess){ 
@@ -36,9 +35,13 @@ export class RegisterComponent {
     }
     else {
       this.alertService.error('All fields are required. Please check the errors.');
-      this.error.emailAddress = (this.passwordTokenRequest.EmailAddress == undefined);
-      this.error.password = (this.passwordTokenRequest.Password == undefined);
+      this.error.emailAddress = (!this.stringIsValid(this.passwordTokenRequest.EmailAddress));
+      this.error.password = (!this.stringIsValid(this.passwordTokenRequest.Password));
       this.error.userType = (this.passwordTokenRequest.UserType == undefined);
     }
+  }
+
+  stringIsValid(string: string): boolean{
+    return string !== undefined && string !== '';
   }
 }

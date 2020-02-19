@@ -20,6 +20,10 @@ export class AuthService extends GenericService {
         return this.currentUserSubject.value;
     }
 
+    public loginUser(passwordTokenRequest: PasswordTokenRequest): Observable<any>{
+        return this.post(passwordTokenRequest, '/login');
+    }
+
     public registerUser(passwordTokenRequest: PasswordTokenRequest): Observable<any>{
         return this.post(passwordTokenRequest, '/register');
     }
