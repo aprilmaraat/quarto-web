@@ -2,7 +2,6 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GenericService } from './generic.service';
-import { RegistrationRequest } from '../models/registration-request';
 import { PasswordTokenRequest } from '../models/password-token-request';
 
 @Injectable()
@@ -21,7 +20,7 @@ export class AuthService extends GenericService {
         return this.currentUserSubject.value;
     }
 
-    public registerUser(regsitrationRequest: RegistrationRequest): Observable<any>{
-        return this.post(regsitrationRequest, '/register');
+    public registerUser(passwordTokenRequest: PasswordTokenRequest): Observable<any>{
+        return this.post(passwordTokenRequest, '/register');
     }
 }
