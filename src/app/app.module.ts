@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { AlertModule } from '../app/custom-modules/_alert/alert.module';
 
 import { AppComponent } from './app.component';
@@ -16,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotificationComponent } from './custom-modules/notification/notification.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoadOverlayComponent } from './custom-modules/load-overlay/load-overlay.component';
 
 import { GenericService } from './services/generic.service';
 import { AuthService } from './services/auth.service';
@@ -37,7 +40,8 @@ const config = {
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    NotificationComponent
+    NotificationComponent,
+    LoadOverlayComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +50,12 @@ const config = {
     HttpClientModule,
     BrowserAnimationsModule,
     MatRadioModule,
+
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+
     AlertModule
   ],
   providers: [
