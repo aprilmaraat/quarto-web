@@ -13,7 +13,6 @@ import { LoadService } from '../../custom-modules/load-overlay/load-overlay.serv
 export class LoginComponent {
   public passwordTokenRequest = new PasswordTokenRequest;
   public error = { emailAddress: false, password: false };
-  public loading: boolean = false;
 
   constructor(private authService: AuthService
     , private alertService: AlertService
@@ -23,12 +22,13 @@ export class LoginComponent {
     }
 
   public login() {
-    this.loadService.load(true);
     if (this.passwordTokenRequest.EmailAddress !== undefined && this.passwordTokenRequest.Password !== undefined) {
+      this.loadService.load(true);
       this.authService.loginUser(this.passwordTokenRequest).subscribe(response => {
         if(!response.wasSuccess){ 
           this.alertService.error(response.messageText);
         }
+        this.alertService.clear();
         this.alertService.success(`Succes login!`);
         this.loadService.load(false);
       }, (err) => {
