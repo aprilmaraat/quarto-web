@@ -14,6 +14,7 @@ export class RegisterComponent {
   public passwordTokenRequest = new PasswordTokenRequest;
   public userType: UserType;
   public error = { emailAddress: false, password: false, userType: false };
+  public loading: boolean = false;
 
   constructor(private authService: AuthService
     , private alertService: AlertService

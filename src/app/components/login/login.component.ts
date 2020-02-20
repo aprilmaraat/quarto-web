@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PasswordTokenRequest } from '../../models/password-token-request';
 import { AuthService } from '../../services/auth.service';
 import { AlertService } from '../../custom-modules/_alert/alert.service';
+import { LoadService } from '../../custom-modules/load-overlay/load-overlay.service';
 
 @Component({
   selector: 'q-login',
@@ -12,26 +13,34 @@ import { AlertService } from '../../custom-modules/_alert/alert.service';
 export class LoginComponent {
   public passwordTokenRequest = new PasswordTokenRequest;
   public error = { emailAddress: false, password: false };
+  public loading: boolean = false;
 
   constructor(private authService: AuthService
     , private alertService: AlertService
-    , private router: Router) { }
+    , private loadService: LoadService
+    , private router: Router) {
+      this.loadService.load(false);
+    }
 
   public login() {
+    this.loadService.load(true);
     if (this.passwordTokenRequest.EmailAddress !== undefined && this.passwordTokenRequest.Password !== undefined) {
       this.authService.loginUser(this.passwordTokenRequest).subscribe(response => {
         if(!response.wasSuccess){ 
           this.alertService.error(response.messageText);
         }
         this.alertService.success(`Succes login!`);
+        this.loadService.load(false);
       }, (err) => {
         this.alertService.error(err.error);
+        this.loadService.load(false);
       });
     }
     else {
       this.alertService.error('All fields are required. Please check the errors.');
       this.error.emailAddress = (this.passwordTokenRequest.EmailAddress == undefined);
       this.error.password = (this.passwordTokenRequest.Password == undefined);
+      this.loadService.load(false);
     }
   }
 }
