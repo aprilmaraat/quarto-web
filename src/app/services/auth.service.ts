@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GenericService } from './generic.service';
 import { PasswordTokenRequest } from '../models/password-token-request';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService extends GenericService {
@@ -21,7 +22,12 @@ export class AuthService extends GenericService {
     }
 
     public loginUser(passwordTokenRequest: PasswordTokenRequest): Observable<any>{
-        return this.post(passwordTokenRequest, '/login');
+        return this.post(passwordTokenRequest, '/login').pipe(map(response => {
+            console.log(response.responseObject);
+            localStorage.setItem('currentUser', JSON.stringify(response.responseObject));
+            this.currentUserSubject.next(response.responseObject);
+            return response;
+        }));
     }
 
     public registerUser(passwordTokenRequest: PasswordTokenRequest): Observable<any>{

@@ -23,6 +23,8 @@ export class LoginComponent {
 
   public login() {
     if (this.passwordTokenRequest.EmailAddress !== undefined && this.passwordTokenRequest.Password !== undefined) {
+      this.error.emailAddress = false;
+      this.error.password = false;
       this.loadService.load(true);
       this.authService.loginUser(this.passwordTokenRequest).subscribe(response => {
         if(!response.wasSuccess){ 
