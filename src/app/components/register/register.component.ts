@@ -28,6 +28,9 @@ export class RegisterComponent {
     if (this.stringIsValid(this.passwordTokenRequest.EmailAddress) 
         && this.stringIsValid(this.passwordTokenRequest.Password) 
         && this.passwordTokenRequest.UserType !== undefined) {
+        this.error.emailAddress = false;
+        this.error.password = false;
+        this.error.userType = false;
         this.loadService.load(true);
         this.authService.registerUser(this.passwordTokenRequest).subscribe(response => {
         if(!response.wasSuccess){ 
