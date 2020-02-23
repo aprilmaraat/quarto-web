@@ -22,6 +22,9 @@ export class RegisterComponent {
     , private loadService: LoadService
     , private router: Router) { 
       this.loadService.load(false);
+      if (this.authService.currentUserValue) {
+        this.router.navigate(['/']);
+      }
     }
 
   public register() {

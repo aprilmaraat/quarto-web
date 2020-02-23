@@ -10,15 +10,19 @@ import { LoadService } from '../../custom-modules/load-overlay/load-overlay.serv
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent{
   public passwordTokenRequest = new PasswordTokenRequest;
   public error = { emailAddress: false, password: false };
+  public returnUrl: string;
 
   constructor(private authService: AuthService
     , private alertService: AlertService
     , private loadService: LoadService
     , private router: Router) {
       this.loadService.load(false);
+      if (this.authService.currentUserValue) {
+          this.router.navigate(['/']);
+      }
     }
 
   public login() {
@@ -31,8 +35,10 @@ export class LoginComponent {
           this.alertService.error(response.messageText);
         }
         this.alertService.clear();
-        this.alertService.success(`Succes login!`);
         this.loadService.load(false);
+        if (this.authService.currentUserValue) {
+            this.router.navigate(['/']);
+        }
       }, (err) => {
         this.alertService.error(err.error);
         this.loadService.load(false);
