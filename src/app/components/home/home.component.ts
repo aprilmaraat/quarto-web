@@ -24,10 +24,7 @@ export class HomeComponent {
 
         if(currentDT.getTime() >= expirationDT.getTime())
         {    
-            this.authService.clearUserCache();
-            if (this.authService.currentUserValue) {
-                this.router.navigate(['/']);
-            }
+            this.authService.logout();
         }
     }
 }
