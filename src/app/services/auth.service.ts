@@ -28,17 +28,17 @@ export class AuthService extends GenericService {
         }));
     }
 
+    public logout(){
+        localStorage.removeItem('currentUser');
+        this.currentUserSubject.next(null);
+    }
+
     public registerUser(passwordTokenRequest: PasswordTokenRequest): Observable<any>{
         return this.post(passwordTokenRequest, '/register');
     }
 
     private setUserCache(user: any){
-        console.log(user);
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
-    }
-
-    public clearUserCache(){
-        localStorage.clear();
     }
 }
