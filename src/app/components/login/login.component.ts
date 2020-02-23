@@ -1,32 +1,40 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PasswordTokenRequest } from '../../models/password-token-request';
 import { AuthService } from '../../services/auth.service';
 import { AlertService } from '../../custom-modules/_alert/alert.service';
 import { LoadService } from '../../custom-modules/load-overlay/load-overlay.service';
+import { GenericComponent } from '../generic/generic.component';
 
 @Component({
   selector: 'q-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent{
+export class LoginComponent extends GenericComponent{
   public passwordTokenRequest = new PasswordTokenRequest;
   public error = { emailAddress: false, password: false };
   public returnUrl: string;
 
-  constructor(private authService: AuthService
+  constructor(authService: AuthService
     , private alertService: AlertService
     , private loadService: LoadService
-    , private router: Router) {
-      this.loadService.load(false);
-      if (this.authService.currentUserValue) {
-          this.router.navigate(['/']);
-      }
+    , private router: Router
+    , private route: ActivatedRoute) {
+      super(authService);
+    this.loadService.load(false);
+    if (authService.currentUserValue) {
+        this.router.navigate(['/']);
     }
+  }
+
+  ngOnInit() {
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+}
 
   public login() {
-    if (this.passwordTokenRequest.EmailAddress !== undefined && this.passwordTokenRequest.Password !== undefined) {
+    if (!this.checkStringIfEmpty(this.passwordTokenRequest.EmailAddress) && !this.checkStringIfEmpty(this.passwordTokenRequest.Password)) {
       this.error.emailAddress = false;
       this.error.password = false;
       this.loadService.load(true);
@@ -37,7 +45,7 @@ export class LoginComponent{
         this.alertService.clear();
         this.loadService.load(false);
         if (this.authService.currentUserValue) {
-            this.router.navigate(['/']);
+          this.router.navigate([this.returnUrl]);
         }
       }, (err) => {
         this.alertService.error(err.error);
@@ -46,8 +54,8 @@ export class LoginComponent{
     }
     else {
       this.alertService.error('All fields are required. Please check the errors.');
-      this.error.emailAddress = (this.passwordTokenRequest.EmailAddress == undefined);
-      this.error.password = (this.passwordTokenRequest.Password == undefined);
+      this.error.emailAddress = (this.checkStringIfEmpty(this.passwordTokenRequest.EmailAddress));
+      this.error.password = (this.checkStringIfEmpty(this.passwordTokenRequest.Password));
       this.loadService.load(false);
     }
   }

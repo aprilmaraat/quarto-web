@@ -5,22 +5,24 @@ import { AlertService } from '../../custom-modules/_alert/alert.service';
 import { UserType } from 'src/app/models/enum';
 import { PasswordTokenRequest } from '../../models/password-token-request';
 import { LoadService } from '../../custom-modules/load-overlay/load-overlay.service';
+import { GenericComponent } from '../generic/generic.component';
 
 @Component({
   selector: 'q-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent extends GenericComponent{
   public passwordTokenRequest = new PasswordTokenRequest;
   public userType: UserType;
   public error = { emailAddress: false, password: false, userType: false };
   public loading: boolean = false;
 
-  constructor(private authService: AuthService
+  constructor(authService: AuthService
     , private alertService: AlertService
     , private loadService: LoadService
     , private router: Router) { 
+      super(authService);
       this.loadService.load(false);
       if (this.authService.currentUserValue) {
         this.router.navigate(['/']);
@@ -28,8 +30,8 @@ export class RegisterComponent {
     }
 
   public register() {
-    if (this.stringIsValid(this.passwordTokenRequest.EmailAddress) 
-        && this.stringIsValid(this.passwordTokenRequest.Password) 
+    if (!this.checkStringIfEmpty(this.passwordTokenRequest.EmailAddress) 
+        && !this.checkStringIfEmpty(this.passwordTokenRequest.Password) 
         && this.passwordTokenRequest.UserType !== undefined) {
         this.error.emailAddress = false;
         this.error.password = false;
@@ -49,14 +51,11 @@ export class RegisterComponent {
     }
     else {
       this.alertService.error('All fields are required. Please check the errors.');
-      this.error.emailAddress = (!this.stringIsValid(this.passwordTokenRequest.EmailAddress));
-      this.error.password = (!this.stringIsValid(this.passwordTokenRequest.Password));
+      this.error.emailAddress = (!this.checkStringIfEmpty(this.passwordTokenRequest.EmailAddress));
+      this.error.password = (!this.checkStringIfEmpty(this.passwordTokenRequest.Password));
       this.error.userType = (this.passwordTokenRequest.UserType == undefined);
+      console.log(this.error.emailAddress);
       this.loadService.load(false);
     }
-  }
-
-  stringIsValid(string: string): boolean{
-    return string !== undefined && string !== '';
   }
 }
