@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService extends GenericService {
-    baseUrl = "https://localhost:6001/api/auth";
+    baseUrl = "https://localhost:6001/api/token";
     private currentUserSubject: BehaviorSubject<PasswordTokenRequest>;
     public currentUser: Observable<PasswordTokenRequest>;
 
