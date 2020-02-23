@@ -23,14 +23,22 @@ export class AuthService extends GenericService {
 
     public loginUser(passwordTokenRequest: PasswordTokenRequest): Observable<any>{
         return this.post(passwordTokenRequest, '/login').pipe(map(response => {
-            console.log(response.responseObject);
-            localStorage.setItem('currentUser', JSON.stringify(response.responseObject));
-            this.currentUserSubject.next(response.responseObject);
+            this.setUserCache(response.responseObject);
             return response;
         }));
     }
 
     public registerUser(passwordTokenRequest: PasswordTokenRequest): Observable<any>{
         return this.post(passwordTokenRequest, '/register');
+    }
+
+    private setUserCache(user: any){
+        console.log(user);
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+    }
+
+    public clearUserCache(){
+        localStorage.clear();
     }
 }
