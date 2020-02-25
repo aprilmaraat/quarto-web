@@ -15,6 +15,9 @@ export class HomeComponent extends GenericComponent{
 
     constructor(private loadService: LoadService, authService: AuthService, private router: Router){
         super(authService);
+    }
+
+    ngOnInit(){
         this.checkCache();
         this.loadService.load(false);
     }

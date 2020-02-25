@@ -54,7 +54,6 @@ export class RegisterComponent extends GenericComponent{
       this.error.emailAddress = (!this.checkStringIfEmpty(this.passwordTokenRequest.EmailAddress));
       this.error.password = (!this.checkStringIfEmpty(this.passwordTokenRequest.Password));
       this.error.userType = (this.passwordTokenRequest.UserType == undefined);
-      console.log(this.error.emailAddress);
       this.loadService.load(false);
     }
   }

@@ -9,7 +9,7 @@ body{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
-	height: 100%; 
+	height: calc(100% - 50px) !important;
 	background-position: center;
 }
 
@@ -51,8 +51,7 @@ body{
 // }
 
 .content-panel{
-	width: 100%;
-	height: calc(100vh - 50px);
+	margin-top: 50px;
 }
 
 .close{

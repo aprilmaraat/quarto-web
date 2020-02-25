@@ -9,6 +9,7 @@
     background-color: white;
     z-index: 1;
     top: 0;
+    line-height: inherit;
 }
 
 .logo-icon{
@@ -17,23 +18,24 @@
 }
 
 .user-panel{
-    width: 250px;
-    height: inherit;
+    // width: calc(100% - 50px);
+    // height: inherit;
     line-height: 50px;
-    float: right;
+    display: inline;
+    background-color: yellow;
 
     & > .btn-link{
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        float: right;
     }
 
     & > .btn-user{
         text-transform: none !important;
-        float: left;
     }
 
-    & > .btn-logout{
-        float: inherit;
-    }
+    // & > .btn-logout{
+    //     float: inherit;
+    // }
 }
 

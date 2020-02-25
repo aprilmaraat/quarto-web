@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadService } from '../../custom-modules/load-overlay/load-overlay.service';
 import { AuthService } from '../../services/auth.service';
 import { AlertService } from '../_alert';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'q-nav',
@@ -11,12 +12,18 @@ import { AlertService } from '../_alert';
 })
 
 export class NavComponent {
+  isLoggedIn$: Observable<boolean>;
+
   constructor(private authService: AuthService
     , private router: Router
     , private loadService: LoadService
-    , private alertService: AlertService){
-      this.loadService.load(false);
+    , private alertService: AlertService) {
+      this.isLoggedIn$ = this.authService.isLoggedIn;
     }
+
+  ngOnInit() {
+    this.loadService.load(false);
+  }
 
   logout(){
     this.authService.logout();

@@ -1,4 +1,4 @@
-<div class="nav-container">
+<div class="nav-container" *ngIf="isLoggedIn$ | async as isLoggedIn">
     <img class="logo-icon" src="../../../assets/images/quarto-q-black.png">
     <div class="user-panel">
         <span class="btn-link btn-user">aprilmaraat@gmail.com</span>

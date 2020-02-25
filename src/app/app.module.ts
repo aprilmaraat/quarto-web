@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AlertModule } from '../app/custom-modules/_alert/alert.module';
 
@@ -36,7 +37,8 @@ import { AuthService } from './services/auth.service';
     HttpClientModule,
     BrowserAnimationsModule,
     MatRadioModule,
-    AlertModule
+    AlertModule,
+    MatToolbarModule
   ],
   providers: [
     GenericService,
