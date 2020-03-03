@@ -15,27 +15,23 @@
 .logo-icon{
     width: 50px;
     height: auto;
+    float: left;
 }
 
 .user-panel{
-    // width: calc(100% - 50px);
-    // height: inherit;
+    width: calc(100% - 50px);
     line-height: 50px;
-    display: inline;
-    background-color: yellow;
+    text-align: right;
+    float: right;
 
     & > .btn-link{
         margin-left: 10px;
         margin-right: 10px;
-        float: right;
+        display: inline-block;
     }
 
     & > .btn-user{
         text-transform: none !important;
     }
-
-    // & > .btn-logout{
-    //     float: inherit;
-    // }
 }
 
