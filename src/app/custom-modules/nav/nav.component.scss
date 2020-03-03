@@ -16,6 +16,10 @@
     width: 50px;
     height: auto;
     float: left;
+
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .user-panel{

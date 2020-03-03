@@ -19,6 +19,6 @@ export class HomeComponent extends GenericComponent{
 
     ngOnInit(){
         this.checkCache();
-        this.loadService.load(false);
+        this.loadService.load(this.loading);
     }
 }

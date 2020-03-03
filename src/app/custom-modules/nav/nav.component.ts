@@ -25,6 +25,10 @@ export class NavComponent {
     this.loadService.load(false);
   }
 
+  homePage(){
+    this.router.navigate(['']);
+  }
+
   logout(){
     this.authService.logout();
     this.router.navigate(['/login']);

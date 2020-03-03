@@ -20,10 +20,10 @@ export class JwtInterceptor implements HttpInterceptor {
         // }
 
         //Just temp code so app runs
-        if (currentUser && currentUser.Password) {
+        if (currentUser && currentUser.token) {
             request = request.clone({
                 setHeaders: { 
-                    Authorization: `Bearer ${currentUser.Password}`
+                    Authorization: `Bearer ${currentUser.token}`
                 }
             });
         }

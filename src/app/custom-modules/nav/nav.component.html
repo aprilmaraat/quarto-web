@@ -1,7 +1,6 @@
 <div class="nav-container" *ngIf="isLoggedIn$ | async as isLoggedIn">
-    <img class="logo-icon" src="../../../assets/images/quarto-q-black.png">
+    <img class="logo-icon" src="../../../assets/images/quarto-q-black.png" (click)="homePage()">
     <div class="user-panel">
-        <span class="btn-link btn-user">aprilmaraat@gmail.com</span>
-        <span class="btn-link btn-logout" (click)="logout()">Logout</span>
+        <span class="btn-link btn-user" (click)="this.router.navigate(['user/edit']);">aprilmaraat@gmail.com</span>
     </div>
 </div>

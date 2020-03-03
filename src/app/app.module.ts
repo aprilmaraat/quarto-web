@@ -19,6 +19,7 @@ import { NavComponent } from './custom-modules/nav/nav.component';
 
 import { GenericService } from './services/generic.service';
 import { AuthService } from './services/auth.service';
+import { UserEditComponent } from './components/user/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuthService } from './services/auth.service';
     RegisterComponent,
     NotificationComponent,
     LoadOverlayComponent,
-    NavComponent
+    NavComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
