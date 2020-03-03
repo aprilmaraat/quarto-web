@@ -47,7 +47,11 @@ export class LoginComponent extends GenericComponent{
           this.router.navigate([this.returnUrl]);
         }
       }, (err) => {
-        this.alertService.error('Server is down. Please check in a few minutes.');
+        let type = typeof err.error;
+        if(type === 'string')
+          this.alertService.error(err.error);
+        else
+          this.alertService.error('Server is down. Please check in a few minutes.');
         this.loadService.load(false);
       });
     }

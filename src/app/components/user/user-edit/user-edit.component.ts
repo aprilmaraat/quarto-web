@@ -17,11 +17,18 @@ export class UserEditComponent extends GenericComponent {
         , private alertService: AlertService
         , private loadService: LoadService
         , private router: Router) { 
-          super(authService);
+            super(authService);
         }
 
-        ngOnInit(){
-            this.checkCache();
-            this.loadService.load(this.loading);
-        }
+    ngOnInit(){
+        this.checkCache();
+        this.loadService.load(this.loading);
+        this.logout();
+    }
+
+    logout(){
+        this.authService.logout();
+        this.router.navigate(['/login']);
+        this.alertService.success('Successfully logged out.');
+    }
 }

@@ -6,11 +6,12 @@ body{
 	overflow: auto;
 	font-family: Arial;
 	background-image: url("src/assets/images/skyscrapers.png");
+	background-color: #f2f2f2;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 	height: calc(100% - 50px) !important;
-	background-position: center;
+	// background-position: center;
 }
 
 .center-position{
@@ -31,6 +32,8 @@ body{
 
 .content-panel{
 	margin-top: 50px;
+	height: 100%;
+	overflow-y: auto;
 }
 
 .close{
@@ -200,6 +203,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .load-overlay{
 	width: 100%;
+	// height: calc(100% - 50px);
 	height: 100%;
 	position: absolute;
 	background-color: #ffffffe5;

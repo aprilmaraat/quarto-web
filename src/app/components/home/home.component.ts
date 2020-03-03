@@ -10,7 +10,7 @@ import { GenericComponent } from '../generic/generic.component';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent extends GenericComponent{
-    loading: boolean = false;
+    loading: boolean = true;
     userStorage = JSON.parse(localStorage.getItem('currentUser'));
 
     constructor(private loadService: LoadService, authService: AuthService, private router: Router){

@@ -29,6 +29,10 @@ export class NavComponent {
     this.router.navigate(['']);
   }
 
+  userPage(){
+    this.router.navigate(['user/edit']);
+  }
+
   logout(){
     this.authService.logout();
     this.router.navigate(['/login']);

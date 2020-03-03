@@ -6,24 +6,32 @@
     height: 50px;
     min-width: 400px;
     position: fixed;
-    background-color: white;
-    z-index: 1;
+    background-color: $theme-color;
+    z-index: 9500;
     top: 0;
     line-height: inherit;
+}
+
+.icon{
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .logo-icon{
     width: 50px;
     height: auto;
     float: left;
+}
 
-    &:hover{
-        cursor: pointer;
-    }
+.user-icon{
+    width: 32px;
+    height: auto;
+    margin: 8px;
 }
 
 .user-panel{
-    width: calc(100% - 50px);
+    width: 50px;
     line-height: 50px;
     text-align: right;
     float: right;
@@ -36,6 +44,10 @@
 
     & > .btn-user{
         text-transform: none !important;
+    }
+
+    &:hover{
+        background-color: $deep-purple-ultra-dark;
     }
 }
 
