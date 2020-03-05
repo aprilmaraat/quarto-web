@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./user-edit.component.scss']
 })
 export class UserEditComponent extends GenericComponent {
-    loading: boolean = true;
+    loading: boolean = false;
 
     constructor(authService: AuthService
         , private alertService: AlertService
@@ -23,7 +23,7 @@ export class UserEditComponent extends GenericComponent {
     ngOnInit(){
         this.checkCache();
         this.loadService.load(this.loading);
-        this.logout();
+        // this.logout();
     }
 
     logout(){
