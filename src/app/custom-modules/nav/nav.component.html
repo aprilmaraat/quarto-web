@@ -1,6 +1,6 @@
 <div class="nav-container" *ngIf="isLoggedIn$ | async as isLoggedIn">
     <img class="logo-icon icon" src="../../../assets/images/quarto-q-white.png" (click)="homePage()">
-    <div class="user-panel">
-        <img class="user-icon icon" src="../../../assets/images/InitialsAvatar.png" (click)="userPage()">
+    <div class="user-panel" (click)="userPage()">
+        <img class="user-icon icon" src="../../../assets/images/InitialsAvatar.png">
     </div>
 </div>

@@ -23,7 +23,6 @@ export class UserEditComponent extends GenericComponent {
     ngOnInit(){
         this.checkCache();
         this.loadService.load(this.loading);
-        // this.logout();
     }
 
     logout(){

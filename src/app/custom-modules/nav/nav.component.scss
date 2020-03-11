@@ -12,12 +12,6 @@
     line-height: inherit;
 }
 
-.icon{
-    &:hover{
-        cursor: pointer;
-    }
-}
-
 .logo-icon{
     width: 50px;
     height: auto;
@@ -48,6 +42,13 @@
 
     &:hover{
         background-color: $deep-purple-ultra-dark;
+        cursor: pointer;
     }
+}
+
+.account-menu-container {
+    width: 500px;
+    height: 500px;
+    background-color: yellow;
 }
 

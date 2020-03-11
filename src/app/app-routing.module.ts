@@ -8,14 +8,22 @@ import { AuthGuard } from './custom-modules/auth.guard';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'user/edit', component: UserEditComponent, canActivate: [AuthGuard] }
+    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
+    { 
+        path: 'user',
+        children: [
+            {
+                path: 'edit',
+                component: UserEditComponent, canActivate: [AuthGuard]
+            }
+        ]
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 
 export class NavComponent {
   isLoggedIn$: Observable<boolean>;
+  showAccountMenu: boolean = false;
 
   constructor(private authService: AuthService
     , private router: Router
@@ -31,6 +32,10 @@ export class NavComponent {
 
   userPage(){
     this.router.navigate(['user/edit']);
+  }
+
+  toggleAccountMenu(){
+    this.showAccountMenu = !this.showAccountMenu;
   }
 
   logout(){
