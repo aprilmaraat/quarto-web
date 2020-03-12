@@ -8,7 +8,6 @@ import { LoadService } from '../../custom-modules/load-overlay/load-overlay.serv
 import { GenericComponent } from '../generic/generic.component';
 
 @Component({
-  selector: 'q-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })

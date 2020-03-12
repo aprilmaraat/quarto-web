@@ -14,14 +14,26 @@ export class GenericService {
     }
 
     public get(id: number, endpoint: string): Observable<any> {
-        return this.http.get<any>(this.baseUrl + endpoint);
+        return this.http.get<any>(this.baseUrl + endpoint + '/' + id);
     }
 
-    public getList(endpoint: string): Observable<any[]>{
-        return this.http.get<any[]>(this.baseUrl + endpoint);
+    public getList(): Observable<any[]>{
+        return this.http.get<any[]>(this.baseUrl + '/list');
     }
+    
+    // public getList(): Observable<any[]>{
+    //     return this.http.get<any[]>('https://localhost:44332/api/values');
+    // }
 
     public post(object: any, endpoint: string): Observable<any> {
         return this.http.post(this.baseUrl + endpoint, JSON.stringify(object), { headers: this.headers });
+    }
+
+    public put(object: any, endpoint: string): Observable<any> {
+        return this.http.put(this.baseUrl + endpoint, JSON.stringify(object), { headers: this.headers });
+    }
+
+    public delete(id: number, endpoint: string): Observable<any> {
+        return this.http.delete(this.baseUrl + endpoint + '/' + id, { headers: this.headers });
     }
 }

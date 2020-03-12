@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../src/_variable.scss';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 body{
 	margin: 0;
@@ -33,7 +34,6 @@ body{
 .content-panel{
 	margin-top: 50px;
 	height: 100%;
-	overflow-y: auto;
 }
 
 .close{
@@ -76,9 +76,9 @@ button{
 	&:focus { text-decoration: none; outline: 0; }
 }
 
-.register-link{ float: left; } 
+.left-link{ float: left; } 
 
-.forgot-link{ float: right; }
+.right-link{ float: right; }
 
 .logo{
 	@extend .center-position;
