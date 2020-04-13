@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadService } from '../../custom-modules/load-overlay/load-overlay.service';
 import { AuthService } from '../../services/auth.service';
@@ -22,16 +22,12 @@ export class NavComponent {
       this.isLoggedIn$ = this.authService.isLoggedIn;
     }
 
-  ngOnInit() {
-    this.loadService.load(false);
-  }
-
   homePage(){
     this.router.navigate(['']);
   }
 
-  userPage(){
-    this.router.navigate(['user/edit']);
+  accountMenuToggle(){
+    this.showAccountMenu = !this.showAccountMenu;
   }
 
   toggleAccountMenu(){

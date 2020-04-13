@@ -23,17 +23,6 @@
     }
 }
 
-.user-menu{
-    @extend .center-position;
-    position: absolute;
-    margin-top: 50px;
-    margin-right: 0;
-    width: 300px;
-    height: 200px;
-    box-shadow: 0px 3px 3px grey;
-    background-color: white;
-}
-
 .user-icon{
     width: 32px;
     height: auto;
@@ -66,5 +55,21 @@
     width: 500px;
     height: 500px;
     background-color: yellow;
+}
+
+.user-menu{
+    @extend .center-position;
+    position: absolute;
+    margin-top: 50px;
+    margin-right: 0;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0px 3px 3px grey;
+    background-color: white;
+    padding: 15px;
+
+    .user-icon{
+        width: 100px;
+    }
 }
 

@@ -4,13 +4,18 @@ export abstract class GenericComponent{
     constructor(public authService: AuthService) {}
 
     checkCache(){
-        let expirationDT = new Date(this.authService.currentUserValue.expiration);
-        let currentDT = new Date();
-        if(currentDT.getTime() >= expirationDT.getTime())
-        {    
-            this.authService.logout();
+        if(this.authService.currentUserValue){
+            let expirationDT = new Date(this.authService.currentUserValue.expiration);
+            let currentDT = new Date();
+
+            if(currentDT.getTime() >= expirationDT.getTime()){    
+                this.authService.logout();
+            }
+            else{
+                this.authService.loggedIn.next(true);
+            }
         }
-        this.authService.loggedIn.next(true);
+        
     }
 
     checkStringIfEmpty(value: string): boolean{
