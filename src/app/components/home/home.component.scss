@@ -8,26 +8,27 @@
     background-color: white;
     border: solid 1px black;
     
+    .row{
+        border: solid 1px blue;
+        
+        .col, div{
+            border: solid 1px green;
+            height: 100%;
+        }
+    }
+
     .owner-info{
         height: 60px;
 
         .owner-icon{
-            padding: 10px 10px;
+            padding: 10px;
+            min-width: 58px;
+            max-width: 58px;
 
             .user-icon{
-                // width: 35px;
                 height: 35px;
                 border-radius: 20px;
             }
-        }
-    }
-
-    .row{
-        border: solid 1px blue;
-        
-        .col{
-            border: solid 1px green;
-            height: 100%;
         }
     }
 }
