@@ -1,10 +1,10 @@
 <div class="logo">
     <img src="../../../assets/images/quarto-logo-deeppurple.png">
 </div>
-<div class="login-container">
+<form (submit)="login()" class="login-container">
     <h2>LOGIN</h2>
     <div class="form-group">
-        <input [(ngModel)]="passwordTokenRequest.EmailAddress" 
+        <input [(ngModel)]="passwordTokenRequest.EmailAddress" [ngModelOptions]="{standalone: true}"
             type="text" 
             class="floating-label-field floating-label-field--s3" 
             placeholder="Email Address" required/>
@@ -12,7 +12,7 @@
         <div *ngIf="error.emailAddress" class="field-error-message indicator-required">Email Address is required</div>
     </div>
     <div class="form-group">
-        <input [(ngModel)]="passwordTokenRequest.Password"  
+        <input [(ngModel)]="passwordTokenRequest.Password" [ngModelOptions]="{standalone: true}"
             type="password" 
             class="floating-label-field floating-label-field--s3" 
             placeholder="Password" required/>
@@ -20,7 +20,7 @@
         <div *ngIf="error.password" class="field-error-message indicator-required">Password is required</div>
     </div>
     <div class="form-group">
-        <button class="btn-y" (click)="login()">Login</button>
+        <button type="submit" class="btn-y" (click)="login()">Login</button>
     </div>
     <div class="form-group">
         <div>
@@ -28,4 +28,4 @@
             <span routerLink="/forgot-password" class="btn-link right-link">Forgot Password</span>
         </div>
     </div>
-</div>
+</form>
