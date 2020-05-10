@@ -1,0 +1,33 @@
+@import '../../../styles.scss';
+
+.info{
+    @extend .center-position;
+    width: 50%;
+    min-width: 500px;
+    height: 350px;
+    background-color: white;
+    border: solid 1px black;
+    
+    .owner-info{
+        height: 60px;
+
+        .owner-icon{
+            padding: 10px 10px;
+
+            .user-icon{
+                // width: 35px;
+                height: 35px;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    .row{
+        border: solid 1px blue;
+        
+        .col{
+            border: solid 1px green;
+            height: 100%;
+        }
+    }
+}
