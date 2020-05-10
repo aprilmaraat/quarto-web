@@ -1,7 +1,9 @@
 import { AuthService } from '../../services/auth.service';
 
 export abstract class GenericComponent{
-    constructor(public authService: AuthService) {}
+    constructor(public authService: AuthService) {
+        this.checkCache();
+    }
 
     checkCache(){
         if(this.authService.currentUserValue){

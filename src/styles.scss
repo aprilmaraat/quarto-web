@@ -110,6 +110,7 @@ button{
 .indicator-required{
 	color: red;
 }
+
 // Floating Label
 /* Making the label break the flow */
 .floating-label
@@ -247,4 +248,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+.row {
+    width: 100%;
+    margin: 0 !important;
 }
