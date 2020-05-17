@@ -12,7 +12,7 @@
         border: solid 1px blue;
         
         .col, div{
-            border: solid 1px green;
+            // border: solid 1px green;
             height: 100%;
         }
     }
@@ -25,9 +25,18 @@
             min-width: 58px;
             max-width: 58px;
 
-            .user-icon{
+            .user-icon-container{
+                background-color: #f2f2f2;
+                border-radius: 50px;
+                width: 35px;
                 height: 35px;
-                border-radius: 20px;
+            }
+
+            .user-icon{
+                width: 35px;
+                height: 35px;
+                border-radius: 50px;
+                background-color: #f2f2f2;
             }
         }
     }
