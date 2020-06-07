@@ -4,6 +4,7 @@ import { LoadService } from '../../custom-modules/load-overlay/load-overlay.serv
 import { AuthService } from '../../services/auth.service';
 import { AlertService } from '../_alert';
 import { Observable } from 'rxjs';
+import { GenericComponent } from 'src/app/components/generic/generic.component';
 
 @Component({
   selector: 'q-nav',
@@ -11,15 +12,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./nav.component.scss']
 })
 
-export class NavComponent {
+export class NavComponent{
   isLoggedIn$: Observable<boolean>;
   showAccountMenu = false;
 
   constructor(private authService: AuthService
-    , private router: Router
+    , private alertService: AlertService
     , private loadService: LoadService
-    , private alertService: AlertService) {
-      this.isLoggedIn$ = this.authService.isLoggedIn;
+    , private router: Router) {
+        this.isLoggedIn$ = this.authService.isLoggedIn;
     }
 
   homePage(){

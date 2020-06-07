@@ -35,16 +35,6 @@
         height: auto;
     }
 
-    & > .btn-link{
-        margin-left: 10px;
-        margin-right: 10px;
-        display: inline-block;
-    }
-
-    & > .btn-user{
-        text-transform: none !important;
-    }
-
     &:hover{
         background-color: $deep-purple-ultra-dark;
         cursor: pointer;
@@ -70,6 +60,10 @@
 
     .user-icon{
         width: 100px;
+    }
+
+    a{
+        text-decoration: none;
     }
 }
 
