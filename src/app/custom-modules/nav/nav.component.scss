@@ -23,17 +23,17 @@
     }
 }
 
-.user-icon{
-    width: 32px;
-    height: auto;
-    margin: 8px;
-}
-
 .user-panel{
     width: 50px;
-    line-height: 50px;
-    text-align: right;
-    float: right;
+    height: 50px;
+    position: relative;
+
+    & > .user-icon{
+        @extend .center-position;
+        position: absolute;
+        width: 32px;
+        height: auto;
+    }
 
     & > .btn-link{
         margin-left: 10px;
@@ -71,4 +71,9 @@
     .user-icon{
         width: 100px;
     }
+}
+
+.user-panel-container{
+    max-width: 50px;
+    min-width: 50px;
 }

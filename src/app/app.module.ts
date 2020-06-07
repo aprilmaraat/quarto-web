@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { AlertModule } from '../app/custom-modules/_alert/alert.module';
 
@@ -38,7 +39,8 @@ import { UserEditComponent } from './components/user/user-edit/user-edit.compone
     HttpClientModule,
     BrowserAnimationsModule,
     MatRadioModule,
-    AlertModule
+    AlertModule,
+    ClickOutsideModule
   ],
   providers: [
     GenericService,
