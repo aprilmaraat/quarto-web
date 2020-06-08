@@ -1,2 +1,16 @@
 @import '../../../../variable';
 @import '../../../../styles.scss';
+
+.main{
+    width: 100%;
+    
+    border: solid 1px purple;
+}
+
+.row{
+    border: solid 1px black;
+
+    div{
+        border: solid 1px red;
+    }
+}
