@@ -50,13 +50,24 @@
 .user-menu{
     @extend .center-position;
     position: absolute;
-    margin-top: 50px;
+    margin-top: 48px;
     margin-right: 0;
     width: 300px;
     height: 145px;
     box-shadow: 0px 3px 3px grey;
     background-color: white;
     padding: 15px;
+
+    .arrow-up {
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid white;
+        position: absolute;
+        right: 20px;
+        top: -5px;
+    }
 
     .user-icon{
         width: 100px;
