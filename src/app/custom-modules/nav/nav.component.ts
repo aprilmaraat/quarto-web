@@ -12,7 +12,7 @@ import { GenericComponent } from 'src/app/components/generic/generic.component';
   styleUrls: ['./nav.component.scss']
 })
 
-export class NavComponent{
+export class NavComponent {
   isLoggedIn$: Observable<boolean>;
   showAccountMenu = false;
 

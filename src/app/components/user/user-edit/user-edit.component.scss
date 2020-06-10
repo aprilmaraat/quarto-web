@@ -2,7 +2,10 @@
 @import '../../../../styles.scss';
 
 .main{
-    width: 100%;
+    @extend .center-position;
+    width: 80%;
+    max-width: 1300px;
+    min-width: 500px;
     
     border: solid 1px purple;
 }
@@ -11,6 +14,7 @@
     border: solid 1px black;
 
     div{
+        padding: 0;
         border: solid 1px red;
     }
 }

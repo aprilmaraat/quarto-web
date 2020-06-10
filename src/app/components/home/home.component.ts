@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoadService } from '../../custom-modules/load-overlay/load-overlay.service';
 import { AuthService } from '../../services/auth.service';
 import { GenericComponent } from '../generic/generic.component';
@@ -13,7 +12,7 @@ export class HomeComponent extends GenericComponent{
     loading: boolean = false;
     userStorage = JSON.parse(localStorage.getItem('currentUser'));
 
-    constructor(private loadService: LoadService, authService: AuthService, private router: Router){
+    constructor(private loadService: LoadService, authService: AuthService){
         super(authService);
     }
 
