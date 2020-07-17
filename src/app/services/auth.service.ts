@@ -5,10 +5,11 @@ import { GenericService } from './generic.service';
 import { PasswordTokenRequest } from '../models/password-token-request';
 import { map } from 'rxjs/operators';
 import { AuthResponse } from '../models/auth-response';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthService extends GenericService {
-    baseUrl = "https://localhost:6001/api/token";
+    baseUrl = environment.authApiUrl + "token";
     private currentUserSubject: BehaviorSubject<AuthResponse>;
     public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
