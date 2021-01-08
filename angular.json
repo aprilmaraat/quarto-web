@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "quarto-web"
+  "defaultProject": "quarto-web",
+  "cli": {
+    "analytics": "b30d8887-1423-478d-8712-8d31eebe2b51"
+  }
 }

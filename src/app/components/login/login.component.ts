@@ -33,32 +33,32 @@ export class LoginComponent extends GenericComponent{
 
     public login() {
         if (!this.checkStringIfEmpty(this.passwordTokenRequest.EmailAddress) && !this.checkStringIfEmpty(this.passwordTokenRequest.Password)) {
-        this.error.emailAddress = false;
-        this.error.password = false;
-        this.loadService.load(true);
-        this.authService.loginUser(this.passwordTokenRequest).subscribe(response => {
-            if(!response.wasSuccess){ 
-            this.alertService.error(response.messageText);
-            }
-            this.alertService.clear();
-            this.loadService.load(false);
-            if (this.authService.currentUserValue) {
-            this.router.navigate([this.returnUrl]);
-            }
-        }, (err) => {
-            let type = typeof err.error;
-            if(type === 'string')
-            this.alertService.error(err.error);
-            else
-            this.alertService.error('Server is down. Please check in a few minutes.');
-            this.loadService.load(false);
-        });
+            this.error.emailAddress = false;
+            this.error.password = false;
+            this.loadService.load(true);
+            this.authService.loginUser(this.passwordTokenRequest).subscribe(response => {
+                if(!response.wasSuccess){ 
+                    this.alertService.error(response.messageText);
+                }
+                this.alertService.clear();
+                this.loadService.load(false);
+                if (this.authService.currentUserValue) {
+                    this.router.navigate([this.returnUrl]);
+                }
+            }, (err) => {
+                let type = typeof err.error;
+                if(type === 'string')
+                this.alertService.error(err.error);
+                else
+                this.alertService.error('Server is down. Please check in a few minutes.');
+                this.loadService.load(false);
+            });
         }
         else {
-        this.alertService.error('All fields are required. Please check the errors.');
-        this.error.emailAddress = (this.checkStringIfEmpty(this.passwordTokenRequest.EmailAddress));
-        this.error.password = (this.checkStringIfEmpty(this.passwordTokenRequest.Password));
-        this.loadService.load(false);
+            this.alertService.error('All fields are required. Please check the errors.');
+            this.error.emailAddress = (this.checkStringIfEmpty(this.passwordTokenRequest.EmailAddress));
+            this.error.password = (this.checkStringIfEmpty(this.passwordTokenRequest.Password));
+            this.loadService.load(false);
         }
     }
 }
