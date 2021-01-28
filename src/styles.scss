@@ -90,6 +90,11 @@ button{
 		width: 100%;
 		height: auto;
 	}
+
+	& > .logo-text{
+		font-family: "Rabbid Highway Sign II";
+		font-size: 50px;
+	}
 }
 
 .login-container{
