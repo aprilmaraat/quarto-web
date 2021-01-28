@@ -4,7 +4,11 @@ import { Subscription } from 'rxjs';
 import { Alert, AlertType } from './alert.model';
 import { AlertService } from './alert.service';
 
-@Component({ selector: 'q-alert', templateUrl: 'alert.component.html' })
+@Component({ 
+    selector: 'q-alert', 
+    templateUrl: 'alert.component.html',
+    styleUrls: ['./alert.component.scss'] 
+ })
 export class AlertComponent implements OnInit, OnDestroy {
     @Input() id: string;
 

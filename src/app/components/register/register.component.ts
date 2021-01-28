@@ -18,10 +18,10 @@ export class RegisterComponent extends GenericComponent{
   public loading: boolean = false;
 
   constructor(authService: AuthService
-    , private alertService: AlertService
-    , private loadService: LoadService
+    , alertService: AlertService
+    , loadService: LoadService
     , private router: Router) { 
-      super(authService);
+      super(authService, alertService, loadService);
       this.loadService.load(false);
       if (this.authService.currentUserValue) {
         this.router.navigate(['/']);

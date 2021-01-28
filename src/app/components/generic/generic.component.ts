@@ -1,8 +1,16 @@
+import { LoadService } from 'src/app/custom-modules/load-overlay/load-overlay.service';
+import { AlertService } from 'src/app/custom-modules/_alert';
 import { AuthService } from '../../services/auth.service';
 
 export abstract class GenericComponent{
-    constructor(public authService: AuthService) {
+    constructor(public authService: AuthService
+        , public alertService: AlertService
+        , public loadService: LoadService) {
         this.checkCache();
+        this.alertService.success('Wow');
+        setTimeout (() => {
+            this.alertService.success('Huehue');
+        }, 2000);
     }
 
     checkCache(){

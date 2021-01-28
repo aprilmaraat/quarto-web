@@ -2,14 +2,10 @@
 @import '../../../styles.scss';
 
 .notif-area {
-    @extend .center-position;
-    height: calc(100% - 20px);
     position: absolute;
     width: 300px;
-    margin-top: 50px;
-    margin-right: 0;
-    padding-top: 20px;
-    padding-right: 5px;
+    right: 0;
+    bottom: 0;
     overflow-y: auto;
-    // margin-right: 15px;
+    padding-right: 5px;
 }

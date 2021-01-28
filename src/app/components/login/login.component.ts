@@ -16,11 +16,11 @@ export class LoginComponent extends GenericComponent{
     public returnUrl: string;
 
     constructor(authService: AuthService
-        , private alertService: AlertService
-        , private loadService: LoadService
+        , alertService: AlertService
+        , loadService: LoadService
         , private router: Router
         , private route: ActivatedRoute) {
-        super(authService);
+        super(authService, alertService, loadService);
         this.loadService.load(false);
         if (authService.currentUserValue) {
             this.router.navigate(['/']);

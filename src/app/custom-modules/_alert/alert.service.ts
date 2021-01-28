@@ -2,6 +2,7 @@
 import { Router, NavigationStart } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { Guid } from 'src/app/models/guid';
 
 import { Alert, AlertType } from './alert.model';
 
@@ -14,6 +15,7 @@ export class AlertService {
         // clear alert messages on route change unless 'keepAfterRouteChange' flag is true
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
+                console.log(this.keepAfterRouteChange);
                 if (this.keepAfterRouteChange) {
                     // only keep for a single route change
                     this.keepAfterRouteChange = false;
@@ -32,18 +34,22 @@ export class AlertService {
 
     // convenience methods
     success(message: string, alertId?: string) {
+        // alertId = Guid.newGuid();
         this.alert(new Alert({ message, type: AlertType.Success, alertId }));
     }
 
     error(message: string, alertId?: string) {
+        // alertId = Guid.newGuid();
         this.alert(new Alert({ message, type: AlertType.Error, alertId }));
     }
 
     info(message: string, alertId?: string) {
+        // alertId = Guid.newGuid();
         this.alert(new Alert({ message, type: AlertType.Info, alertId }));
     }
 
     warn(message: string, alertId?: string) {
+        // alertId = Guid.newGuid();
         this.alert(new Alert({ message, type: AlertType.Warning, alertId }));
     }
 
@@ -51,6 +57,18 @@ export class AlertService {
     alert(alert: Alert) {
         this.keepAfterRouteChange = alert.keepAfterRouteChange;
         this.subject.next(alert);
+        console.log(alert);
+        // setTimeout (() => {
+        //     console.log('timeout');
+        //     let element = document.getElementById('alert');
+        //     console.log(element);
+        //     if (element != null) {
+        //       element.classList.add('hide-alert');
+        //     }
+        // }, 5000);
+        setTimeout (() => {
+            this.clear(alert.alertId);
+        }, 6000);
     }
 
     // clear alerts

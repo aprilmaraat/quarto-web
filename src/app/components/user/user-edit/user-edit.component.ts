@@ -14,10 +14,10 @@ export class UserEditComponent extends GenericComponent {
     loading: boolean = false;
 
     constructor(authService: AuthService
-        , private alertService: AlertService
-        , private loadService: LoadService
+        , alertService: AlertService
+        , loadService: LoadService
         , private router: Router) { 
-            super(authService);
+            super(authService, alertService, loadService);
         }
 
     ngOnInit(){
