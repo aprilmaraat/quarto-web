@@ -20,10 +20,6 @@ export class GenericService {
     public getList(): Observable<any[]>{
         return this.http.get<any[]>(this.baseUrl + '/list');
     }
-    
-    // public getList(): Observable<any[]>{
-    //     return this.http.get<any[]>('https://localhost:44332/api/values');
-    // }
 
     public post(object: any, endpoint: string): Observable<any> {
         return this.http.post(this.baseUrl + endpoint, JSON.stringify(object), { headers: this.headers });
