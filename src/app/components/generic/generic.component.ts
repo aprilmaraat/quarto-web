@@ -10,7 +10,8 @@ export abstract class GenericComponent{
             let expirationDT = new Date(this.authService.currentUserValue.expiration);
             let currentDT = new Date();
 
-            if(currentDT.getTime() >= expirationDT.getTime()){    
+            if(currentDT.getTime() >= expirationDT.getTime()){   
+                this.authService.loggedIn.next(false); 
                 this.authService.logout();
             }
             else{
