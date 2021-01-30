@@ -1,4 +1,14 @@
-<div class="nav-container" *ngIf="isLoggedIn$ | async as isLoggedIn; else loggedOut">
+<header class="nav-container" *ngIf="isLoggedIn$ | async as isLoggedIn; else loggedOut">
+
+    <div class="row">
+        <img class="logo-icon" src="../../../assets/images/quarto-q-black.png" (click)="homePage()">
+        <div class="col">
+            
+        </div>
+    </div>
+
+</header>
+<!-- <div class="nav-container" *ngIf="isLoggedIn$ | async as isLoggedIn; else loggedOut">
 
     <div class="row">
         <div class="col">
@@ -31,7 +41,7 @@
         </div>
     </div>
 
-</div>
+</div> -->
 
 <ng-template #loggedOut>
     

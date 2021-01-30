@@ -7,10 +7,6 @@ export abstract class GenericComponent{
         , public alertService: AlertService
         , public loadService: LoadService) {
         this.checkCache();
-        this.alertService.success('Wow');
-        setTimeout (() => {
-            this.alertService.success('Huehue');
-        }, 2000);
     }
 
     checkCache(){

@@ -15,7 +15,6 @@ export class AlertService {
         // clear alert messages on route change unless 'keepAfterRouteChange' flag is true
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
-                console.log(this.keepAfterRouteChange);
                 if (this.keepAfterRouteChange) {
                     // only keep for a single route change
                     this.keepAfterRouteChange = false;
@@ -58,17 +57,13 @@ export class AlertService {
         this.keepAfterRouteChange = alert.keepAfterRouteChange;
         this.subject.next(alert);
         console.log(alert);
-        // setTimeout (() => {
-        //     console.log('timeout');
-        //     let element = document.getElementById('alert');
-        //     console.log(element);
-        //     if (element != null) {
-        //       element.classList.add('hide-alert');
-        //     }
-        // }, 5000);
         setTimeout (() => {
-            this.clear(alert.alertId);
-        }, 6000);
+            console.log('timeout');
+            let element = document.getElementById('alert');
+            if (element != null) {
+              element.classList.add('hide-alert');
+            }
+        }, 5000);
     }
 
     // clear alerts
